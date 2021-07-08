@@ -1,8 +1,6 @@
-const http = require('http');
 const path = require('path');
-const fs = require('fs');
 const express = require('express');
-//const mongose = require('mongose');
+const mongoose = require('mongoose');
 
 
 const app = express();
@@ -12,8 +10,23 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get
-//require('/routes/htmlRoutes')(app);
+// needs to be fixed connected
+// mongose.connect('mongodb://localhost/workout' ,{ 
+//   useNewURLParser: true,
+//   useFindAndmodify: false,
+//   useUnifiedTopology: true,
+// });
+
+require('./routes/htmlRoutes')(app);
+
+app.get('', function (req, res) {
+  res.send('')
+})
+
+app.get('', function (req, res) {
+  res.send('')
+})
+
 
 app.listen(PORT, () => {
   console.log(`App listening on PORT: ${PORT}`);
